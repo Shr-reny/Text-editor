@@ -58,14 +58,15 @@ export default function TextArea(props) {
     <h1>{props.title}</h1>
   <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8" 
   style={{backgroundColor: props.mode==='dark'?'black':'gray',color: props.mode==='light'?'black':'white'}}></textarea>
-  <button type="button" onClick={handleUpClick} className="btn btn-primary my-3">Convert to uppercase</button>
-  <button type="button" onClick={handleUpClick2} className="btn btn-primary my-3 mx-3">Convert to lowercase</button>
-  <button type="button" onClick={handleUpClick3} className="btn btn-primary my-3 ">Clear Text</button>
+  <button type="button" disabled={text.length===0} onClick={handleUpClick} className="btn btn-primary my-3">Convert to uppercase</button>
+  <button type="button" disabled={text.length===0} onClick={handleUpClick2} className="btn btn-primary my-3 mx-3">Convert to lowercase</button>
+  <button type="button" disabled={text.length===0} onClick={handleUpClick3} className="btn btn-primary my-3 ">Clear Text</button>
   {/* <button type="button" onClick={toggle} className="btn btn-primary my-3 mx-3">{myBtn}</button> */}
     </div>
     <div className="container">
       <h1>Text Summary</h1>
-      <p>{text.split(" ").length} words and {text.length} characters</p>
+      <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+      <p>{0.008* text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes Read</p>
       <h1>Preview</h1>
       <p>{text}</p>
     </div>

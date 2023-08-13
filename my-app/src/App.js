@@ -14,8 +14,10 @@ import {
 
 function App() {
   const[mode,setMode]=useState('light');
-  const toggle=()=>
+  const toggle=(cls)=>
   {
+    removebg();
+    document.body.classList.add('bg-'+cls);
     if(mode==='dark')
     {
       setMode('gray');
@@ -31,6 +33,14 @@ function App() {
       showAlert("dark mode enabled","success");
       document.title='TextUtils-Dark';
     }
+  }
+  const removebg=()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-primary')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-warning')
   }
   const[alert,setAlert]=useState(null);
   const showAlert=(msg,type)=>
