@@ -34,7 +34,7 @@ function App() {
       document.title='TextUtils-Dark';
     }
   }
-  const removebg=()=>{
+    const removebg=()=>{
     document.body.classList.remove('bg-light')
     document.body.classList.remove('bg-dark')
     document.body.classList.remove('bg-primary')
