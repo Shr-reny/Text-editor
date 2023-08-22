@@ -55,7 +55,7 @@ function App() {
       setAlert(null);
     },1500);
   }
-  return (
+     return (
     <Router>
     <NavBar title="text editor" etc="kuch aur" mode={mode} toggle={toggle}/>
     <Alert alert={alert}/>
